@@ -7,6 +7,8 @@ import com.cartotype.MapView;
 
 public class MainView extends MapView
 {
+    private Framework m_framework;
+
     MainView(Context aContext, Framework aFramework)
     {
         super(aContext,aFramework);
@@ -18,6 +20,5 @@ public class MainView extends MapView
         m_framework.setPerspective(!m_framework.getPerspective());
     }
 
-    private Framework m_framework;
 }
 
