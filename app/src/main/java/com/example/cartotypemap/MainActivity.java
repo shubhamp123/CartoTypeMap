@@ -8,9 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
 
+import com.cartotype.CoordType;
 import com.cartotype.Framework;
+import com.cartotype.Geometry;
 import com.cartotype.MapView;
 import com.cartotype.NoticePosition;
+import com.cartotype.Route;
+import com.cartotype.RouteProfile;
+import com.cartotype.RouteProfileType;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -44,17 +49,24 @@ public class MainActivity extends AppCompatActivity {
                     2500,
                     5000);
 
+            framework.insertPushPin(13.3662d,52.5102d, CoordType.Degree,
+                    null,null,0,0);
+            framework.insertPushPin(13.44d,52.5102d, CoordType.Degree,
+                    null,null,0,0);
 
-            framework.setFollowMode(Framework.FOLLOW_FLAG_HEADING);
-
-            frameLayout.addView(new MapView(this, framework));
 
             /*
-
-            add layers
+                Alternatively we can also create route using startNavigation methode,
+                This methode draws and starts the navigation on map
             * */
+//            framework.startNavigation(new double[]{13.3662d,13.4262d,13.44d},
+//                    new double[]{52.5102d,52.5102d,52.5102d},
+//                    CoordType.Degree);
 
 
+            frameLayout.addView(new MapView(this, framework));
+            drawRoute(framework);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,5 +99,17 @@ public class MainActivity extends AppCompatActivity {
 
             return fileOut;
 
+    }
+
+    private void drawRoute(Framework framework){
+            /*
+
+            Create navigation object using createRoute methode
+            Draw this route on map using userRoute methode
+            * */
+        RouteProfile routeProfile = new RouteProfile(RouteProfileType.Car);
+        Route route = framework.createRoute(routeProfile, new double[]{13.3662d,13.44d},
+                new double[]{52.5102d,52.5102d}, CoordType.Degree);
+        framework.useRoute(route, true);
     }
 }
