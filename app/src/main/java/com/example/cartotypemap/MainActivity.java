@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             File mapFile = getFileFromRaw(this, R.raw.berlin, "berlinmap");
             File fontFile = getFileFromRaw(this, R.raw.dejavusans, "dejavusansfont");
-            File styleFile = getFileFromRaw(this, R.raw.standard, "standardstyle");
+            File styleFile = getFileFromRaw(this, R.raw.standard_update, "standardstyle");
 
             Log.d("WASTE", "mapFile: "+mapFile.getAbsolutePath());
             Log.d("WASTE", "fontFile: "+fontFile.getAbsolutePath());
@@ -61,36 +61,52 @@ public class MainActivity extends AppCompatActivity {
             framework.insertPushPin(13.401797,52.518898, CoordType.Degree, "","", 0, 0);
 */
 
-            /*double lat[] ={52.513923, 52.516266, 52.518623, 52.516640, 52.518898};
-            double lon[] ={13.378344, 13.377775, 13.376198, 13.402318, 13.401797};
-            */
-            double lat[] ={52.513923, 52.536164};
+
+          /*  double lat[] ={52.513923, 52.536164};
             double lon[] ={13.378344, 13.433664};
+*/
+            final double lonArr[]={13.378344, 13.380962, 13.385854, 13.388944, 13.398987, 13.405855, 13.411265, 13.417847, 13.421852, 13.423344};
+            final double latArr[]={52.513923, 52.514910, 52.515954, 52.517286, 52.517703, 52.520888, 52.523655, 52.529441, 52.535252, 52.537718};
+
+
+            final Route route = framework.createRoute(new RouteProfile(),lonArr,latArr,CoordType.Degree);
+
+
+            framework.insertPushPin(13.423344, 52.537718, CoordType.Degree,"","",0,0);
 
             framework.enableNavigation(true);
        
-            framework.startNavigation(lon,lat,CoordType.Degree);
+            framework.startNavigation(lonArr,latArr,CoordType.Degree);
+
 
 
 
 
             final Handler handler = new Handler();
             Runnable runnableCode = new Runnable() {
-                 double lonStart = 13.378344;
-                 double latStart = 52.513923;
+                int i=0;
+
                 @Override
                 public void run() {
+                    if (i <= lonArr.length-1){
 
-                    framework.navigate(Framework.POSITION_VALID,1.0,lonStart,latStart,20.0,0,0);
-                    framework.setFollowMode(Framework.FOLLOW_MODE_LOCATION);
-                    Log.d("waste","navigate "+lonStart+" "+latStart);
 
-                    handler.postDelayed(this, 1000);
+                        framework.navigate(Framework.POSITION_VALID,1.0,lonArr[i],latArr[i],20.0,0,0);
+                        framework.useRoute(route,true);
+                        framework.setFollowMode(Framework.FOLLOW_MODE_LOCATION);
+
+                        Log.d("waste","navigate "+lonArr[i]+" "+latArr[i]);
+
+                        i++;
+
+                        handler.postDelayed(this, 1000);
+                    }
+
                 }
             };
             handler.post(runnableCode);
 
-            framework.setFollowMode(Framework.FOLLOW_MODE_LOCATION);
+           // framework.setFollowMode(Framework.FOLLOW_MODE_LOCATION);
 
 
             frameLayout.addView(new MapView(this, framework));

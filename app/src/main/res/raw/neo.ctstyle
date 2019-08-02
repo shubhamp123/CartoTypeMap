@@ -263,10 +263,10 @@ For more information see http://www.cartotype.com.
         <icon id='pharmacy-icon' width='20m,3pt,16pt'>
             <svg viewBox="0 0 36 36" height="62">
                 <rect style="fill:darkgrey" x="0" y="0" width="36" height="36" rx="2" ry="2"/>
-                <path style="fill:#ffffff" d="M20.14 17.3 L20.14 9.44 L11.86 9.44 L11.86 17.3 L4 17.3 
+                <path style="fill:#ffffff" d="M20.14 17.3 L20.14 9.44 L11.86 9.44 L11.86 17.3 L4 17.3
 			L4 25.58 L11.86 25.58 L11.86 33.44 L20.14 33.44 L20.14 25.58 L28 25.58 L28 17.3 L20.14 17.3 Z
 			M0.5 37.44 L31.5 37.44 a0.5 0.5 -180 0 0 0.5 -0.5 L32 5.94 a0.5 0.5 -180 0 0 -0.5 -0.5
-			L0.5 5.44 a0.5 0.5 -180 0 0 -0.5 0.5 L0 36.94 a0.5 0.5 -180 0 0 0.5 0.5 Z M2 35.44 L2 
+			L0.5 5.44 a0.5 0.5 -180 0 0 -0.5 0.5 L0 36.94 a0.5 0.5 -180 0 0 0.5 0.5 Z M2 35.44 L2
 			7.44 L30 7.44 L30 35.44 L2 35.44 Z" transform="translate(2,-3.44)"/>
             </svg>
         </icon>
@@ -290,7 +290,7 @@ For more information see http://www.cartotype.com.
 
         <icon id='fuel-icon' width='20m,3pt,16pt'>
             <svg width="18.64" height="18.64" viewBox="0 0 115 115" stroke-width="3px">
-                <path fill='darkgrey' d="M 22.7283 108.087 C 4.26832 107.546 23.6818 43.3596 32.6686 21.0597 C 33.8491 17.0245 60.28 18.4952 
+                <path fill='darkgrey' d="M 22.7283 108.087 C 4.26832 107.546 23.6818 43.3596 32.6686 21.0597 C 33.8491 17.0245 60.28 18.4952
 		   60.0056 19.8857 C 59.0889 25.9148 54.8979 23.2429 52.0142 26.8579 L 51.7464 36.8066 C 48.6085 40.8144 40.2357 34.4677
 		   38.078 42.8773 C 31.3694 92.5727 45.0689 108.819 22.7283 108.087 z M 85.3122 9.52799 L 29.1766 9.52847 C 28.4855 17.5896
 		   -11.559 113.573 22.9292 113.284 C 48.5214 113.073 39.5312 104.08 42.6984 51.03 C 41.8513 49.3228 50.871 48.6585 50.8739
@@ -965,7 +965,7 @@ For more information see http://www.cartotype.com.
         <macro color='ncsred' ref='route-circle'/>
         <label priority='-10'/>
     </layer>
-    
+
     <!-- The vehicle heading when routing -->
     <layer name='route-vector' roadflags='#F000'>
         <line width='40m,12pt,42pt'/>
